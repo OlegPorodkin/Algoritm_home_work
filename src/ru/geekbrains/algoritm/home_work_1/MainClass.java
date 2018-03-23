@@ -41,12 +41,17 @@ public class MainClass {
 
     static long fastPow(int numb, int power){
 
-        long p = 1;
-        while (!(power == 0)){
-            p*=numb;
-            power--;
+        long fp = 1;
+        while (power > 0){
+            if (power%2 != 0){
+                power--;
+                fp *= numb;
+            }else {
+                numb *= numb;
+                power /=2;
+            }
         }
-        return p;
+        return fp;
     }
 
     static boolean isBlackOrWhite(int x1, int y1, int x2, int y2){
